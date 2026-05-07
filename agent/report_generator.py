@@ -83,3 +83,13 @@ def generate_report(results_path="output/extraction_results.json", output_dir="o
 
 if __name__ == "__main__":
     generate_report()
+
+
+def generate_report_from_results(results, output_dir="output"):
+    import tempfile
+    orig = "output/extraction_results.json"
+    os.makedirs(output_dir, exist_ok=True)
+    tmp = f"{output_dir}/extraction_results.json"
+    with open(tmp, "w") as f:
+        json.dump(results, f)
+    return generate_report(results_path=tmp, output_dir=output_dir)

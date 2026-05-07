@@ -133,3 +133,33 @@ def run_extraction(questions_path="prompts/validation_questions.json",
 
 if __name__ == "__main__":
     run_extraction()
+
+
+def ingest_and_extract(pdf_path, output_dir="output", api_key=None):
+    import anthropic
+    from documents.ingest import extract_text_from_pdf, chunk_pages, embed_chunks, build_index
+    import faiss, numpy as np
+    from sentence_transformers import SentenceTransformer
+
+    pages = extract_text_from_pdf(pdf_path)
+    chunks = chunk_pages(pages)
+    embeddings, embed_model = embed_chunks(chunks)
+    index = build_index(embeddings)
+
+    client = anthropic.Anthropic(api_key=api_key or os.getenv("ANTHROPIC_API_KEY"))
+
+    with open("prompts/validation_questions.json") as f:
+        question_sets = json.load(f)
+
+    results = {}
+    for section_key, section in question_sets.items():
+        results[section_key] = {"sheet": section["sheet"], "answers": []}
+        for q in section["questions"]:
+            relevant = retrieve_relevant_chunks(q["question"], chunks, index, embed_model)
+            answer = answer_question(client, q["question"], q["guidance"], relevant)
+            results[section_key]["answers"].append({
+                "id": q["id"],
+                "question": q["question"],
+                **answer
+            })
+    return results
