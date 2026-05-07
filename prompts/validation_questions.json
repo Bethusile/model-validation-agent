@@ -1,0 +1,82 @@
+{
+  "model_identification": {
+    "sheet": "Model Identification",
+    "questions": [
+      {
+        "id": "MI-1",
+        "question": "Is the model clearly identified with a unique model ID or name?",
+        "guidance": "Look for model name, ID, version number, or unique identifier"
+      },
+      {
+        "id": "MI-2",
+        "question": "Is the model purpose and intended use clearly documented?",
+        "guidance": "Look for statements about what the model is used for and in what context"
+      },
+      {
+        "id": "MI-3",
+        "question": "Is the model owner or responsible party identified?",
+        "guidance": "Look for ownership, accountability, or responsible team/person"
+      }
+    ]
+  },
+  "model_development": {
+    "sheet": "Model Development",
+    "questions": [
+      {
+        "id": "MD-1",
+        "question": "Is the development dataset described including size and time period?",
+        "guidance": "Look for sample size, observation period, data sources used in development"
+      },
+      {
+        "id": "MD-2",
+        "question": "Are model assumptions clearly stated and justified?",
+        "guidance": "Look for explicit assumptions about data, relationships, or model behaviour"
+      },
+      {
+        "id": "MD-3",
+        "question": "Is the model methodology or algorithm described?",
+        "guidance": "Look for description of statistical technique, algorithm, or modelling approach"
+      }
+    ]
+  },
+  "model_performance": {
+    "sheet": "Model Performance",
+    "questions": [
+      {
+        "id": "MP-1",
+        "question": "Are model performance metrics reported?",
+        "guidance": "Look for Gini, AUC, KS statistic, R-squared, or other performance measures"
+      },
+      {
+        "id": "MP-2",
+        "question": "Has the model been validated on an out-of-sample or out-of-time dataset?",
+        "guidance": "Look for holdout sample, test set, or out-of-time validation results"
+      },
+      {
+        "id": "MP-3",
+        "question": "Are model limitations and weaknesses documented?",
+        "guidance": "Look for explicit statements about model limitations, known weaknesses, or areas of uncertainty"
+      }
+    ]
+  },
+  "governance": {
+    "sheet": "Governance",
+    "questions": [
+      {
+        "id": "GV-1",
+        "question": "Is there evidence of model approval by a relevant committee or authority?",
+        "guidance": "Look for approval records, sign-off, or governance committee references"
+      },
+      {
+        "id": "GV-2",
+        "question": "Is a model monitoring or review schedule documented?",
+        "guidance": "Look for periodic review dates, monitoring frequency, or trigger events for review"
+      },
+      {
+        "id": "GV-3",
+        "question": "Are model change controls or version history documented?",
+        "guidance": "Look for version history, change log, or amendment records"
+      }
+    ]
+  }
+}
