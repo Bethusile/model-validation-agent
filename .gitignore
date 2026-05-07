@@ -1,5 +1,4 @@
 .env
-documents/
 output/
 __pycache__/
 *.pyc
