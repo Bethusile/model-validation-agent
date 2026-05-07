@@ -3,7 +3,7 @@ import json
 import os
 import tempfile
 import sys
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from agent.extractor import ingest_and_extract
 from agent.report_generator import generate_report_from_results
 
